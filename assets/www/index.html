@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1"> 
+		<title>Pinaxis Suicide Prevention App</title> 
+		<link rel="stylesheet" href="css/jquery.mobile.flatui.min.css" />
+		<link rel="stylesheet" href="css/main.css"/>
+		
+		<script src="js/lib/json2.js"></script>
+		<script src="js/lib/underscore-min.js"></script>
+		<script src="js/lib/jquery-1.9.1.min.js"></script>
+		<script src="js/lib/jquery.mobile-1.3.1.min.js"></script>
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
+		<script src="js/lib/jquery.ui.map.full.min.js"></script>
+		<script src="js/lib/jquery.ui.map.extensions.js"></script>
+		<script src="js/lib/cordova.js"></script>
+		<script src="js/lib/ContactView.js"></script>
+		<script src="js/lib/smsplugin.js"></script>
+		<script src="js/app/pspa.js"></script>
+		<script src="js/app/step1.js"></script>
+		<script src="js/app/step2.js"></script>
+		<script src="js/app/step3.js"></script>
+		<script src="js/app/step4.js"></script>
+		<script src="js/app/step5.js"></script>
+		<script src="js/app/step6.js"></script>
+		<script src="js/app/step7.js"></script>
+		
+		<script src="js/app/activate-copingStrategies.js"></script>
+		<script src="js/app/geoMap.js"></script>
+    </head>
+    <body> 
+	
+	<!-- HOME -->
+	<div data-role="page" id="home">
+		<div data-role="header" data-theme="b">
+		    <h1>Tuti by Pinaxis</h1>
+		    <a href="#optionsDialog" data-rel="dialog" data-icon="gear" class="ui-btn-right" data-transition="flow">Options</a>
+		</div>
+		<div data-role="content">	
+			<div class="forNewUser">
+				<h3>To get started we will help you generate your safety plan. This will, in times of need, provide you with immediate assistance. Click on the "Create my Safety Plan" button to begin.</h3>
+				<div class="startButtonContainer">
+					<a href="#safetyPlanStep1" data-role="button" data-icon="arrow-r" data-iconpos="right" data-ajaxLink="1" data-theme="b" data-transition="flow">Create my Safety Plan</a>
+				</div>		
+			</div>
+			<div class="forReturningUser">
+				<p>
+					Welcome back! If you are currently experiencing any problems, or if you feel you may have encountered one of your warning signs, push the "I'm experiencing a warning sign" button below immediately.
+				</p>
+				<p>
+					If this is an emergency, use the buttons at the bottom of the screen to send a text message to your emergency contact list, find help centers near you, and call a crisis line.
+				</p>
+				<div>
+					<a href="#activatePlan1" data-role="button" data-theme="e" data-icon="alert">I'm experiencing a warning sign.</a>
+					<a href="#safetyPlanStep1" data-role="button" data-theme="d" data-icon="edit">Edit Safety Plan</a>
+				</div>
+			</div>
+		</div>
+		<div data-role="footer" class="ui-bar" data-role="b">
+			<div data-role="controlgroup" data-type="horizontal" data-theme="f">
+				<a href="index.html" data-role="button" data-icon="star" data-theme="f" data-function="SendSMS">Send Text</a>
+				<a href="#geoMapPage" data-role="button" data-icon="search" data-theme="f">Find Help</a>
+				<a href="tel:8002738255" data-role="button" data-icon="alert" data-theme="f">Call Help</a>
+			</div>
+		</div>
+	</div>
+	<!-- /HOME -->
+
+	<!-- 
+			SAFETY PLAN 
+	-->		
+		<!--  Step 1 -->
+		<div data-role="page" id="safetyPlanStep1">
+			<div data-role="header" data-theme="b">
+				<a href="#home" data-role="button" data-icon="home" data-iconpos="notext" data-theme="c" data-inline="true"></a>
+			    <h1>Crisis Indicators</h1>
+			</div>
+			<div data-role="content">	
+				<h3>What sorts of thoughts, images, moods, situations, and behaviors indicate to you that a crisis may be developing?</h3>
+				<form>
+					<table>
+						<tr>
+							<td>
+								<textarea cols="40" rows="8" name="textarea" id="safetyPlanStep1AddIndicator"></textarea>
+							</td>
+							<td>
+								<a href="#" data-role="button" data-icon="plus" data-theme="a" data-inline="false" data-iconpos="right" data-method="add">Add</a>
+							</td>
+						</tr>
+					</table>
+				</form>
+				<ul data-role="listview" id="safetyPlanStep1Indicators" data-split-icon="minus" data-inset="true"></ul>
+			</div>
+			<div data-role="footer" data-theme="b">
+				<a data-role="button" data-icon="arrow-l" data-iconpos="left" data-inline="true" data-transition="flow" data-direction="reverse" data-rel="back">Back</a>
+				<a href="#safetyPlanStep2" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="b" data-method="next">Next</a>
+			</div>
+		</div>
+		<!-- /Step 1 -->
+		
+		<!--  Step 2 -->
+		<div data-role="page" id="safetyPlanStep2">
+			<div data-role="header" data-theme="b">
+				<a href="#home" data-role="button" data-icon="home" data-iconpos="notext" data-theme="c" data-inline="true"></a>
+			    <h1>Coping Activities</h1>
+			</div>
+			<div data-role="content">	
+				<h3>Create a list of activities that help you cope when you encounter the indicators you described.</h3>
+				<form>
+					<table>
+						<tr>
+							<td>
+								<textarea cols="40" rows="8" name="textarea" id="safetyPlanStep2AddActivity"></textarea>
+							</td>
+							<td>
+								<a href="#" data-role="button" data-icon="plus" data-theme="a" data-inline="false" data-iconpos="right" data-method="add">Add</a>
+							</td>
+						</tr>
+					</table>
+				</form>
+				<ul data-role="listview" id="safetyPlanStep2Activities" data-split-icon="minus" data-inset="true"></ul>
+			</div>
+			<div data-role="footer" data-theme="b">
+				<a data-role="button" data-icon="arrow-l" data-iconpos="left" data-inline="true" data-transition="flow" data-direction="reverse" data-rel="back">Back</a>
+				<a href="#safetyPlanStep3" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="b" data-method="next">Next</a>
+			</div>
+		</div>
+		<!-- /Step 2 -->
+		
+		<!--  Step 3 -->
+		<div data-role="page" id="safetyPlanStep3">
+			<div data-role="header" data-theme="b">
+				<a href="#home" data-role="button" data-icon="home" data-iconpos="notext" data-theme="c" data-inline="true"></a>
+			    <h1>Social Contacts</h1>
+			</div>
+			<div data-role="content">	
+				<h3>Who would you want to contact if you come across any of the triggers you provided?</h3>
+				<div data-role="fieldcontain">
+					<a href="#" data-role="button" data-iconpos="right" data-icon="search" data-theme="b" class="findContacts">Find Contacts</a>
+				</div>
+				
+				<ul data-role="listview" id="safetyPlanStep3SelectedContacts" data-split-icon="minus" data-inset="true" data-coverAll="true"></ul>
+			</div>
+			<div data-role="footer" data-theme="b">
+				<a data-role="button" data-icon="arrow-l" data-iconpos="left" data-inline="true" data-transition="flow" data-direction="reverse" data-rel="back">Back</a>
+				<a href="#safetyPlanStep4" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="b" data-method="next">Next</a>
+			</div>
+		</div>
+		<!-- /Step 3 -->
+		
+		<!--  Step 4 -->
+		<div data-role="page" id="safetyPlanStep4">
+			<div data-role="header" data-theme="b">
+				<a href="#home" data-role="button" data-icon="home" data-iconpos="notext" data-theme="c" data-inline="true"></a>
+			    <h1>Crisis Contacts</h1>
+			</div>
+			<div data-role="content">	
+				<h3>Create a list of people who, if you begin having suicidal thoughts, you can contact using the emergency message we will customize next.</h3>
+				<div data-role="fieldcontain">
+					<a href="#" data-role="button" data-iconpos="right" data-icon="search" data-theme="b" class="findContacts">Find Contacts</a>
+				</div>
+				
+				<ul data-role="listview" id="safetyPlanStep4SelectedContacts" data-split-icon="minus" data-inset="true" data-coverAll="true"></ul>
+			</div>
+			<div data-role="footer" data-theme="b">
+				<a data-role="button" data-icon="arrow-l" data-iconpos="left" data-inline="true" data-transition="flow" data-direction="reverse" data-rel="back">Back</a>
+				<a href="#safetyPlanStep5" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="b" data-method="next">Next</a>
+			</div>
+		</div>
+		<!-- /Step 4 -->
+		
+		<!--  Step 5 -->
+		<div data-role="page" id="safetyPlanStep5">
+			<div data-role="header" data-theme="b">
+				<a href="#home" data-role="button" data-icon="home" data-iconpos="notext" data-theme="c" data-inline="true"></a>
+			    <h1>Crisis Message</h1>
+			</div>
+			<div data-role="content">	
+				<h3>Now we will create a custom message that will be sent to your emergency list if you feel you are in a moment of crisis.</h3>
+				<form>
+					<textarea cols="40" rows="8" name="textarea" id="safetyPlanStep5Message"></textarea>
+				</form>
+			</div>
+			<div data-role="footer" data-theme="b">
+				<a data-role="button" data-icon="arrow-l" data-iconpos="left" data-inline="true" data-transition="flow" data-direction="reverse" data-rel="back">Back</a>
+				<a href="#safetyPlanStep6" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="b" data-method="next">Next</a>
+			</div>
+		</div>
+		<!-- /Step 5 -->
+		
+		<!--  Step 6 -->
+		<div data-role="page" id="safetyPlanStep6">
+			<div data-role="header" data-theme="b">
+				<a href="#home" data-role="button" data-icon="home" data-iconpos="notext" data-theme="c" data-inline="true"></a>
+			    <h1>Safe Environment</h1>
+			</div>
+			<div data-role="content">	
+				<h3>Have you thought of ways in which you might harm yourself? Enter potential dangers in your environment to develop a plan to limit your access to these means.</h3>
+				<form>
+					<table>
+						<tr>
+							<td>
+								<textarea cols="40" rows="8" name="textarea" id="safetyPlanStep6AddDanger"></textarea>
+							</td>
+							<td>
+								<a href="#" data-role="button" data-icon="plus" data-theme="a" data-inline="false" data-iconpos="right" data-method="add">Add</a>
+							</td>
+						</tr>
+					</table>
+				</form>
+				<ul data-role="listview" id="safetyPlanStep6Dangers" data-split-icon="minus" data-inset="true"></ul>
+			</div>
+			<div data-role="footer" data-theme="b">
+				<a data-role="button" data-icon="arrow-l" data-iconpos="left" data-inline="true" data-transition="flow" data-direction="reverse" data-rel="back">Back</a>
+				<a href="#safetyPlanStep7" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="b" data-method="next">Next</a>
+			</div>
+		</div>
+		<!-- /Step 6 -->
+		
+		<!--  Step 7 -->
+		<div data-role="page" id="safetyPlanStep7">
+			<div data-role="header" data-theme="b">
+				<a href="#home" data-role="button" data-icon="home" data-iconpos="notext" data-theme="c" data-inline="true"></a>
+			    <h1>Provider Information</h1>
+			</div>
+			<div data-role="content">	
+				<h3>Enter your medical provider or counselor's contact information.</h3>
+				<form>
+
+					<input type="text" name="firstName" id="providerFirstName" value="" placeholder="First Name"/>
+
+					<input type="text" name="lastName" id="providerLastName" value="" placeholder="Last Name"/>
+
+					<input type="tel" name="phone" id="providerPhoneNumber" value="" placeholder="Phone Number"/>
+				</form>
+			</div>
+			<div data-role="footer" data-theme="b">
+				<a data-role="button" data-icon="arrow-l" data-iconpos="left" data-inline="true" data-transition="flow" data-direction="reverse" data-rel="back">Back</a>
+				<a href="#home" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="b" data-method="next">Next</a>
+			</div>
+		</div>
+		<!-- /Step 7 -->
+	
+	<!-- 
+		ACTIVATE PLAN 
+	-->
+		<!-- Coping Strategies -->
+		<div data-role="page" id="activatePlan1">
+			<div data-role="header" data-theme="b">
+				<a href="#home" data-role="button" data-icon="home" data-iconpos="notext" data-theme="c" data-inline="true"></a>
+				<h1>Your Safety Plan</h1>
+		   		<a href="#optionsDialog" data-rel="dialog" data-icon="gear" class="ui-btn-right" data-transition="flow">Options</a>
+			</div>
+			<div data-role="content">				
+				<div class="container slideshowContainer">
+					<h2>Coping Strategies</h2>
+					<div class="arrow rightArrow"><a href="#" data-role="button" data-icon="arrow-r" data-iconpos="notext" data-inline="true"></a></div>
+					<div class="arrow leftArrow"><a href="#" data-role="button" data-icon="arrow-l" data-iconpos="notext" data-inline="true"></a></div>
+					<div class="slideshow"></div>
+				</div>
+				
+				<div class="container socializeContainer">
+					<h2>Socialize with Friends</h2>
+					<div class="callList"></div>
+				</div>
+			</div>
+			<div data-role="footer" class="ui-bar" data-role="b">
+				<div data-role="controlgroup" data-type="horizontal" data-theme="f">
+					<a href="#" data-role="button" data-icon="star" data-theme="f" data-function="SendSMS">Send Text</a>
+					<a href="#geoMapPage" data-role="button" data-icon="search" data-theme="f">Find Help</a>
+					<a href="tel:8002738255" data-role="button" data-icon="alert" data-theme="f">Call Help</a>
+				</div>
+			</div>
+		</div>
+		
+		<!-- Find Location -->
+		<div data-role="page" id="geoMapPage">
+			<div data-role="header" data-theme="b">
+				<a href="#home" data-role="button" data-icon="home" data-iconpos="notext" data-theme="c" data-inline="true"></a>
+				<h1>Find Help Centers</h1>
+		   		<a href="#optionsDialog" data-rel="dialog" data-icon="gear" class="ui-btn-right" data-transition="flow">Options</a>
+			</div>
+			<div data-role="content">		
+				<div class="ui-bar-c ui-corner-all ui-shadow">
+					<div id="geoMap" style="width:100%;height:400px"></div>
+				</div>		
+			</div>
+			<div data-role="footer" class="ui-bar" data-role="b">
+				<div data-role="controlgroup" data-type="horizontal" data-theme="f">
+					<a href="#" data-role="button" data-icon="star" data-theme="f" data-function="SendSMS">Send Text</a>
+					<a href="#geoMapPage" data-role="button" data-icon="search" data-theme="f" disabled="">Find Help</a>
+					<a href="tel:8002738255" data-role="button" data-icon="alert" data-theme="f">Call Help</a>
+				</div>
+			</div>
+		</div>
+	
+	<!-- OPTIONS -->
+	<div data-role="page" id="optionsDialog">
+		<div data-role="header">
+			<h2>Options</h2>
+		</div>
+		<div data-role="content">
+			<ul data-role="listview" data-inset="true">
+			    <li data-role="list-divider">Safety Plan</li>
+			    <li><a href="#safetyPlanStep1" data-method="deleteSafetyPlan">Delete Safety Plan</a></li>
+			    <li><a href="#safetyPlanStep1">View Safety Plan</a></li>
+			    <li data-role="list-divider">General</li>
+			    <li><a href="#">About This App</a></li>
+			    <li><a href="#">About Pinaxis</a></li>
+			</ul>
+		</div>
+	</div><!-- /OPTIONS -->
+	
+	<!-- SMS Send Dialog -->
+	<div data-role="page" id="SmsDialog">
+		<div data-role="header">
+			<h2>Options</h2>
+		</div>
+		<div data-role="content">
+			<ul data-role="listview" data-inset="true">
+			    <li data-role="list-divider">Safety Plan</li>
+			    <li><a href="#">Provider Contact Info</a></li>
+			    <li><a href="#safetyPlanStep1">Restart Safety Plan</a></li>
+			    <li><a href="#">Update Support Center List</a></li>
+			    <li data-role="list-divider">General</li>
+			    <li><a href="#">About This App</a></li>
+			    <li><a href="#">About Pinaxis</a></li>
+			</ul>
+		</div>
+	</div><!-- /OPTIONS -->
+	
+	</body>
+</html>

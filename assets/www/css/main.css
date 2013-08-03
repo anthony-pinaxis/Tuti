@@ -1,0 +1,35 @@
+ul[data-coverAll="true"]{z-index:9999;}
+
+div[data-role="content"]{padding-bottom:100px;}
+
+div[data-role="footer"]{position:fixed;bottom:0;padding:.5em 0;width:100%;z-index:100;text-align:center;}
+div[data-role="footer"] a[data-rel="back"]{float:left;}
+div[data-role="footer"] a[data-method="next"]{float:right;}
+div[data-role="footer"] a[data-role="button"]{margin:0 .5em;}
+
+/** Home Page **/
+#home div[data-role="content"] > div{display:none;}
+#home .startButtonContainer{padding-top:2em;}
+#home .forReturningUser{text-align:center;}
+
+/** Safety Plan **/
+#safetyPlanStep2 #safetyPlanStep2Indicators{margin-top:1em;}
+#safetyPlanStep3 #safetyPlanStep3SelectedContacts{margin-top:1em;}
+
+/** 
+	Activate Plan 
+**/
+#activatePlan1 .container{clear:both;}
+
+/** Coping Strategies **/
+#activatePlan1 .slideshowContainer{height:100px;}
+#activatePlan1 .slideshowContainer > div{line-height:100px;}
+#activatePlan1 .slideshowContainer > div.slideshow{padding:30px 20%;height:40px;line-height:1.3em;border:1px solid #ccc;border-width:1px 0;}
+#activatePlan1 .slideshowContainer > div.slideshow > div{display:none;}
+#activatePlan1 .slideshowContainer > div.slideshow > div:nth-child(1){display:block;}
+#activatePlan1 .slideshowContainer .arrow{width:10%;text-align:center;}
+#activatePlan1 .slideshowContainer .rightArrow{float:right;}
+#activatePlan1 .slideshowContainer .leftArrow{float:left;}
+
+/** Socialize w/ Friends **/
+.socializeContainer{clear:both;padding-top:2em;}
