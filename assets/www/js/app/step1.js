@@ -1,11 +1,17 @@
 $(function(){
 	// Safety Plan Generation: Page 1
-	$("#safetyPlanStep1").on("pageshow",function(event){
+	$("body").on("pageshow","#safetyPlanStep1",function(event){
 		console.log('Shown: Safety Plan Generation: Page 1');
+		if(pspa.plan.indicators && $("#safetyPlanStep1Indicators li").length === 0){
+			$.each(pspa.plan.indicators,function(i,indicator){
+				indicator = "<a href='#'>"+indicator+"</a>";
+				$("#safetyPlanStep1Indicators").append("<li>"+indicator+"<a href='#' data-function='remove'></a></li>");
+			});
+		}
 		$("#safetyPlanStep1Indicators").listview('refresh');
 	});
 	// Bind step 1 buttons
-	$('#safetyPlanStep1 form a[data-method="add"]').click(function(event){
+	$('body').on('click','#safetyPlanStep1 form a[data-method="add"]',function(event){
 		event.preventDefault();
 		event.stopPropagation();
 		var indicator = $.trim($("#safetyPlanStep1AddIndicator").val());
@@ -16,12 +22,12 @@ $(function(){
 		$("#safetyPlanStep1AddIndicator").val('');
 		
 	});
-	$("#safetyPlanStep1Indicators").on('click','li a[data-function="remove"]',function(){
+	$("body").on('click','#safetyPlanStep1Indicators li a[data-function="remove"]',function(){
 		$(this).parent().remove();
 		$("#safetyPlanStep1Indicators").listview('refresh');
 	});
 	// Bind save functionality to Next click
-	$("#safetyPlanStep1 div[data-role='footer'] a[data-method='next']").on('click',function(){
+	$("body").on('click',"#safetyPlanStep1 div[data-role='footer'] a[data-method='next']",function(){
 		$("#safetyPlanStep1Indicators").children('li').each(function(){
 			pspa.plan.indicators = [];
 			var $li = $(this);

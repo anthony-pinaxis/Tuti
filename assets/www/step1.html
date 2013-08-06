@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body> 	
+	
+		<!--  Step 1 -->
+		<div data-role="page" id="safetyPlanStep1">
+			<div data-role="header" data-theme="b">
+				<a href="#home" data-role="button" data-icon="home" data-iconpos="notext" data-theme="c" data-inline="true"></a>
+			    <h1>Crisis Indicators</h1>
+			</div>
+			<div data-role="content">	
+				<h3>What sorts of thoughts, images, moods, situations, and behaviors indicate to you that a crisis may be developing?</h3>
+				<form>
+					<table>
+						<tr>
+							<td>
+								<textarea cols="40" rows="8" name="textarea" id="safetyPlanStep1AddIndicator"></textarea>
+							</td>
+							<td>
+								<a href="#" data-role="button" data-icon="plus" data-theme="a" data-inline="false" data-iconpos="right" data-method="add">Add</a>
+							</td>
+						</tr>
+					</table>
+				</form>
+				<ul data-role="listview" id="safetyPlanStep1Indicators" data-split-icon="minus" data-inset="true"></ul>
+			</div>
+			<div data-role="footer" data-theme="b">
+				<a data-role="button" data-icon="arrow-l" data-iconpos="left" data-inline="true" data-transition="flow" data-direction="reverse" data-rel="back">Back</a>
+				<a href="#safetyPlanStep2" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="b" data-method="next">Next</a>
+			</div>
+		</div>
+		<!-- /Step 1 -->
+	
+	</body>
+</html>

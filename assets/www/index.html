@@ -28,6 +28,8 @@
 		
 		<script src="js/app/activate-copingStrategies.js"></script>
 		<script src="js/app/geoMap.js"></script>
+		
+		<script src="js/app/emergencyCallDialog.js"></script>
     </head>
     <body> 
 	
@@ -41,7 +43,7 @@
 			<div class="forNewUser">
 				<h3>To get started we will help you generate your safety plan. This will, in times of need, provide you with immediate assistance. Click on the "Create my Safety Plan" button to begin.</h3>
 				<div class="startButtonContainer">
-					<a href="#safetyPlanStep1" data-role="button" data-icon="arrow-r" data-iconpos="right" data-ajaxLink="1" data-theme="b" data-transition="flow">Create my Safety Plan</a>
+					<a href="step1.html" data-role="button" data-icon="arrow-r" data-iconpos="right" data-ajaxLink="1" data-theme="b" data-transition="flow">Create my Safety Plan</a>
 				</div>		
 			</div>
 			<div class="forReturningUser">
@@ -53,7 +55,7 @@
 				</p>
 				<div>
 					<a href="#activatePlan1" data-role="button" data-theme="d" data-icon="alert">I'm experiencing a warning sign.</a>
-					<a href="#safetyPlanStep1" data-role="button" data-theme="e" data-icon="edit">Edit Safety Plan</a>
+					<a href="step1.html" data-role="button" data-theme="e" data-icon="edit">Edit Safety Plan</a>
 				</div>
 			</div>
 		</div>
@@ -61,7 +63,7 @@
 			<div data-role="controlgroup" data-type="horizontal" data-theme="f">
 				<a href="index.html" data-role="button" data-icon="star" data-theme="f" data-function="SendSMS">Send Text</a>
 				<a href="#geoMapPage" data-role="button" data-icon="search" data-theme="f">Find Help</a>
-				<a href="tel:8002738255" data-role="button" data-icon="alert" data-theme="f">Call Help</a>
+				<a href="emergencyCallDialog.html" data-role="button" data-icon="alert" data-theme="f" data-rel="dialog">Call Help</a>
 			</div>
 		</div>
 	</div>
@@ -69,36 +71,7 @@
 
 	<!-- 
 			SAFETY PLAN 
-	-->		
-		<!--  Step 1 -->
-		<div data-role="page" id="safetyPlanStep1">
-			<div data-role="header" data-theme="b">
-				<a href="#home" data-role="button" data-icon="home" data-iconpos="notext" data-theme="c" data-inline="true"></a>
-			    <h1>Crisis Indicators</h1>
-			</div>
-			<div data-role="content">	
-				<h3>What sorts of thoughts, images, moods, situations, and behaviors indicate to you that a crisis may be developing?</h3>
-				<form>
-					<table>
-						<tr>
-							<td>
-								<textarea cols="40" rows="8" name="textarea" id="safetyPlanStep1AddIndicator"></textarea>
-							</td>
-							<td>
-								<a href="#" data-role="button" data-icon="plus" data-theme="a" data-inline="false" data-iconpos="right" data-method="add">Add</a>
-							</td>
-						</tr>
-					</table>
-				</form>
-				<ul data-role="listview" id="safetyPlanStep1Indicators" data-split-icon="minus" data-inset="true"></ul>
-			</div>
-			<div data-role="footer" data-theme="b">
-				<a data-role="button" data-icon="arrow-l" data-iconpos="left" data-inline="true" data-transition="flow" data-direction="reverse" data-rel="back">Back</a>
-				<a href="#safetyPlanStep2" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="b" data-method="next">Next</a>
-			</div>
-		</div>
-		<!-- /Step 1 -->
-		
+	-->			
 		<!--  Step 2 -->
 		<div data-role="page" id="safetyPlanStep2">
 			<div data-role="header" data-theme="b">
@@ -269,7 +242,7 @@
 				<div data-role="controlgroup" data-type="horizontal" data-theme="f">
 					<a href="#" data-role="button" data-icon="star" data-theme="f" data-function="SendSMS">Send Text</a>
 					<a href="#geoMapPage" data-role="button" data-icon="search" data-theme="f">Find Help</a>
-					<a href="tel:8002738255" data-role="button" data-icon="alert" data-theme="f">Call Help</a>
+					<a href="emergencyCallDialog.html" data-role="button" data-icon="alert" data-theme="f" data-rel="dialog">Call Help</a>
 				</div>
 			</div>
 		</div>
@@ -290,7 +263,7 @@
 				<div data-role="controlgroup" data-type="horizontal" data-theme="f">
 					<a href="#" data-role="button" data-icon="star" data-theme="f" data-function="SendSMS">Send Text</a>
 					<a href="#geoMapPage" data-role="button" data-icon="search" data-theme="f" disabled="">Find Help</a>
-					<a href="tel:8002738255" data-role="button" data-icon="alert" data-theme="f">Call Help</a>
+					<a href="emergencyCallDialog.html" data-role="button" data-icon="alert" data-theme="f" data-rel="dialog">Call Help</a>
 				</div>
 			</div>
 		</div>
@@ -303,26 +276,8 @@
 		<div data-role="content">
 			<ul data-role="listview" data-inset="true">
 			    <li data-role="list-divider">Safety Plan</li>
-			    <li><a href="#safetyPlanStep1" data-method="deleteSafetyPlan">Delete Safety Plan</a></li>
-			    <li><a href="#safetyPlanStep1">View Safety Plan</a></li>
-			    <li data-role="list-divider">General</li>
-			    <li><a href="#">About This App</a></li>
-			    <li><a href="#">About Pinaxis</a></li>
-			</ul>
-		</div>
-	</div><!-- /OPTIONS -->
-	
-	<!-- SMS Send Dialog -->
-	<div data-role="page" id="SmsDialog">
-		<div data-role="header">
-			<h2>Options</h2>
-		</div>
-		<div data-role="content">
-			<ul data-role="listview" data-inset="true">
-			    <li data-role="list-divider">Safety Plan</li>
-			    <li><a href="#">Provider Contact Info</a></li>
-			    <li><a href="#safetyPlanStep1">Restart Safety Plan</a></li>
-			    <li><a href="#">Update Support Center List</a></li>
+			    <li><a href="step1.html" data-method="deleteSafetyPlan">Delete Safety Plan</a></li>
+			    <li><a href="step1.html">View Safety Plan</a></li>
 			    <li data-role="list-divider">General</li>
 			    <li><a href="#">About This App</a></li>
 			    <li><a href="#">About Pinaxis</a></li>

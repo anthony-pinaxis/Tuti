@@ -52,12 +52,7 @@
 				$("#home .forReturningUser").show();
 				// Apply existing values		
 				// Step 1
-				if(pspa.plan.indicators){
-					$.each(pspa.plan.indicators,function(i,indicator){
-						indicator = "<a href='#'>"+indicator+"</a>";
-						$("#safetyPlanStep1Indicators").append("<li>"+indicator+"<a href='#' data-function='remove'></a></li>");
-					});
-				}
+				
 				// Step 2
 				if(pspa.plan.activities){
 					$.each(pspa.plan.activities,function(i,activity){
