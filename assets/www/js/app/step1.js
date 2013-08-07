@@ -28,8 +28,8 @@ $(function(){
 	});
 	// Bind save functionality to Next click
 	$("body").on('click',"#safetyPlanStep1 div[data-role='footer'] a[data-method='next']",function(){
-		$("#safetyPlanStep1Indicators").children('li').each(function(){
-			pspa.plan.indicators = [];
+		pspa.plan.indicators = [];
+		$("#safetyPlanStep1Indicators > li").each(function(){
 			var $li = $(this);
 			var text = $li.find('div.ui-btn-text > a.ui-link-inherit').html();
 			pspa.plan.indicators.push(text);
